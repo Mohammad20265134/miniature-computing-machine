@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامه هفتگی دانشگاه</title>
+<style>
+body {
+  font-family: Tahoma, sans-serif;
+  background: #f3f0ff;
+  text-align: center;
+  padding: 20px;
+}
+h1 { color: #663399; }
+.day {
+  background: white;
+  padding: 15px;
+  margin: 12px auto;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 2px 8px #ddd;
+}
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+button {
+  background: #663399;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>📚 برنامه هفتگی دانشگاه من</h1>
+
+<div>
+<input id="day" placeholder="روز هفته">
+<input id="lesson" placeholder="نام درس">
+<input id="time" placeholder="ساعت کلاس">
+<button onclick="addClass()">افزودن کلاس</button>
+</div>
+
+<div id="schedule"></div>
+
+<script>
+function addClass() {
+  let day = document.getElementById("day").value;
+  let lesson = document.getElementById("lesson").value;
+  let time = document.getElementById("time").value;
+
+  if (!day  !lesson  !time) {
+    alert("لطفاً همه قسمت‌ها را پر کن");
+    return;
+  }
+
+  let item = document.createElement("div");
+  item.className = "day";
+  item.innerHTML = "📅 " + day + "<br>📖 " + lesson +
+  "<br>⏰ " + time;
+  document.getElementById("schedule").appendChild(item);
+
+  document.getElementById("day").value = "";
+  document.getElementById("lesson").value = "";
+  document.getElementById("time").value = "";
+}
+</script>
+
+</body>
+</html>
